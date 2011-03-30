@@ -7,27 +7,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	<!-- Scans the classpath of this application for @Components to deploy as beans -->
-	<context:component-scan base-package="net.raescott" />
-
-	<!-- Configures the @Controller programming model -->
-	<mvc:annotation-driven />
-
-	<!-- Map paths directly to view names without controller processing. Use the view-name attribute if necessary: by convention the view name equals the path without the leading slash -->
-	<mvc:view-controller path="/" view-name="home" />
-	<mvc:view-controller path="/embeddedFlowContainer" />
-	<mvc:view-controller path="/embeddedFlowInModalDialogContainer" />
-
-	<!-- Imports the configurations of the different infrastructure systems of the application -->
-	<import resource="webflowContext.xml" />
 	<!--
 		DispatcherServlet Context: defines this servlet's request-processing infrastructure
 	-->
 
 	<!-- Imports user-defined @Controller beans that process client requests -->
-	<!--
-	<import resource="webflowContext.xml" />
-	-->
+	<import resource="controllers.xml" />
+	<import resource="webflow.xml" />
 
 	<!-- Enables controllers mapped with @RequestMapping annotations, formatting annotations @NumberFormat @DateTimeFormat, and JSR 303 style validation -->
 	<mvc:annotation-driven/>

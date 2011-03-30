@@ -22,7 +22,7 @@
 
 	<!-- Plugs in a custom creator for Web Flow views -->
 	<webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator" 
-		development="true" />
+		development="true" validator="validator" />
 
 	<!-- Configures Web Flow to use Tiles to create views for rendering; Tiles allows for applying consistent layouts to your views -->
 	<bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator"> 
@@ -31,9 +31,7 @@
 	</bean>
 	
 	<!-- Bootstraps JSR-303 validation and exposes it through Spring's Validator interface -->
-	<!--
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
-	-->
 	
 	<!-- Installs a listener to apply Spring Security authorities -->
 	<bean id="securityFlowExecutionListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
